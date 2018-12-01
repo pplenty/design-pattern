@@ -43,6 +43,8 @@ const Color = {
     BLUE: 'BLUE'
 };
 console.log(Color.RED);
+console.log(Color.GREEN);
+console.log(Color.BLUE);
 
 // arrow function
 let array = ['a', 'b', 'c', '3'];
