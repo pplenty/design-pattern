@@ -4,8 +4,6 @@
  @description :
  */
 
-'use strict';
-
 class AbstractClass {
     constructor() {
         console.log("AbstractClass created");
