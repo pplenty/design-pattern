@@ -45,7 +45,7 @@ function test() {
 
     let user = builder.setId(1).setName('jason').setAge(22).build();
 
-    let user2 = builder.setIªd(2).setName('koh').setAge(25).build();
+    let user2 = builder.setId(2).setName('koh').setAge(25).build();
 
     console.log(user);
     console.log(user2);
