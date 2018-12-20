@@ -63,7 +63,7 @@ class ConcreteDecoratorB extends Decorator {
     }
 }
 
-function init_Decorator() {
+function test() {
     const component = new ConcreteComponent();
     const decoratorA = new ConcreteDecoratorA(new ConcreteComponent(), 'A.sign');
     const decoratorB = new ConcreteDecoratorB(new ConcreteComponent(), 'B.sign');
@@ -75,4 +75,4 @@ function init_Decorator() {
     decoratorB.AddedBehavior();
 }
 
-init_Decorator();
+test();
