@@ -42,10 +42,10 @@ class User {
 function test() {
 
     let builder = new User.Builder();
-
     let user = builder.setId(1).setName('jason').setAge(22).build();
 
-    let user2 = builder.setId(2).setName('koh').setAge(25).build();
+    let builder2 = new User.Builder();
+    let user2 = builder2.setId(2).setName('koh').build();
 
     console.log(user);
     console.log(user2);
