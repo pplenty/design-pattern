@@ -4,51 +4,57 @@
  */
 
 class User {
-    constructor(build) {
-        this.id = build.id;
-        this.name = build.name;
-        this.age = build.age;
+  constructor(build) {
+    if(build) {
+        console.log(Object.keys(build));
+      this.id = build.id;
+      this.name = build.name;
+      this.age = build.age;
+    }
+  }
+
+  static get Builder() {
+    class Builder {
+
+      setId(id) {
+        this.id = id;
+        return this;
+      }
+
+      setName(name) {
+        this.name = name;
+        return this;
+      }
+
+      setAge(age) {
+        this.age = age;
+        return this;
+      }
+
+      build() {
+        return new User(this);
+      }
     }
 
-    static get Builder() {
-        class Builder {
-            constructor() {
-            }
-
-            setId(id) {
-                this.id = id;
-                return this;
-            }
-
-            setName(name) {
-                this.name = name;
-                return this;
-            }
-
-            setAge(age) {
-                this.age = age;
-                return this;
-            }
-
-            build() {
-                return new User(this);
-            }
-        }
-
-        return Builder;
-    }
+    return new Builder();
+  }
 }
 
 function test() {
 
-    let builder = new User.Builder();
-    let user = builder.setId(1).setName('jason').setAge(22).build();
+  let user1 = new User();
+  user1.id = 0;
+  user1.age = 29;
+  user1.name = 'Tom';
+  console.log(user1);
 
-    let builder2 = new User.Builder();
-    let user2 = builder2.setId(2).setName('koh').build();
+  let builder = User.Builder;
+  let user2 = User.Builder.setId(1).setName('jason').setAge(22).build();
+  console.log(user2);
 
-    console.log(user);
-    console.log(user2);
+  let builder2 = User.Builder;
+  let user3 = builder2.setId(2).setName('koh').build();
+  console.log(user3);
 
 }
 
