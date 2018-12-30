@@ -5,54 +5,51 @@
 
 class Builder {
 
-    init() {
-        Object.keys(this).forEach((key) => {
-            const setterName =
-                `set${key.substr(0, 1).toUpperCase()}${key.substr(1)}`;
+  init() {
+    Object.keys(this).forEach((key) => {
+      const setterName =
+        `set${key.substr(0, 1).toUpperCase()}${key.substr(1)}`;
 
-            this[setterName] = (value) => {
-                this[key] = value;
-                return this;
-            }
-        });
-    }
-
-    build() {
+      this[setterName] = (value) => {
+        this[key] = value;
         return this;
-    }
+      };
+    });
+  }
+
+  build() {
+    return this;
+  }
 
 }
 
 
 class User extends Builder {
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.id = -1;
-        this.name = null;
-        this.age = 0;
+    this.id = -1;
+    this.name = null;
+    this.age = 0;
 
-        super.init();
-    }
+    super.init();
+  }
 
-    static print() {
-        console.log('just print!');
-    }
-}
-
-function test() {
-
-    const user = new User()
-        .setId(1)
-        .setName('jason')
-        .setAge(22).build();
-
-    user.setAge(66);
-
-    console.log(user);
-    User.print();
-
+  static print() {
+    console.log('just print!');
+  }
 
 }
 
-test();
+function testBuilderPattern() {
+
+  const user = new User()
+    .setId(1)
+    .setName('jason')
+    .setAge(22).build();
+
+  console.log(user);
+
+}
+
+testBuilderPattern();

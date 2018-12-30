@@ -5,8 +5,8 @@
 
 class User {
   constructor(build) {
-    if(build) {
-        console.log(Object.keys(build));
+    if (build) {
+      console.log(Object.keys(build));
       this.id = build.id;
       this.name = build.name;
       this.age = build.age;
@@ -40,7 +40,7 @@ class User {
   }
 }
 
-function test() {
+function testBuilderPattern() {
 
   let user1 = new User();
   user1.id = 0;
@@ -58,4 +58,4 @@ function test() {
 
 }
 
-test();
+testBuilderPattern();
