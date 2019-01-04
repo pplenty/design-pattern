@@ -82,6 +82,11 @@ public class TestMain {
         result = user2.map(User::getAddress)
                 .map(User.Address::getStreet)
                 .orElse("no address");
+    
+        
+        List<String> strings = getNames();
+        String stringResult = strings.stream().reduce((s, s2) -> s + s2).orElse("none");
+        System.out.println(stringResult);
         
     
     }
